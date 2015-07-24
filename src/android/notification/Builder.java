@@ -129,7 +129,6 @@ public class Builder {
                 .setNumber(options.getBadgeNumber())
                 .setTicker(options.getText())
                 .setSmallIcon(options.getSmallIcon())
-                .setLargeIcon(options.getIconBitmap())
                 .setAutoCancel(options.isAutoClear())
                 .setOngoing(options.isOngoing())
                 .setStyle(style)
