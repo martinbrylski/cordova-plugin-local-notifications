@@ -131,7 +131,7 @@ public class Builder {
                 .setNumber(options.getBadgeNumber())
                 .setTicker(options.getText())
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), getIconResId()))
-                .setSmallIcon(getSmallIconResId());
+                .setSmallIcon(getSmallIconResId())
                 .setAutoCancel(options.isAutoClear())
                 .setOngoing(options.isOngoing())
                 .setStyle(style)
