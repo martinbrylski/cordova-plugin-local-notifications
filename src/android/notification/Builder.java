@@ -33,6 +33,8 @@ import org.json.JSONObject;
 
 import java.util.Random;
 
+import android.graphics.BitmapFactory;
+
 /**
  * Builder class for local notifications. Build fully configured local
  * notification specified by JSON object passed from JS side.
@@ -128,7 +130,8 @@ public class Builder {
                 .setContentText(options.getText())
                 .setNumber(options.getBadgeNumber())
                 .setTicker(options.getText())
-                .setSmallIcon(options.getSmallIcon())
+                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), getIconResId()))
+                .setSmallIcon(getSmallIconResId());
                 .setAutoCancel(options.isAutoClear())
                 .setOngoing(options.isOngoing())
                 .setStyle(style)
@@ -142,6 +145,38 @@ public class Builder {
         applyContentReceiver(builder);
 
         return new Notification(context, options, builder, triggerReceiver);
+    }
+
+    /**
+     * Retrieves the resource ID of the app icon.
+     *
+     * @return
+     *      The resource ID of the app icon
+     */
+    private int getSmallIconResId() {
+        Resources res   = context.getResources();
+        String pkgName  = context.getPackageName();
+
+        int resId;
+        resId = res.getIdentifier(options.options.optString("smallIcon", "icon"), "drawable", pkgName);
+
+        return resId;
+    }
+
+        /**
+     * Retrieves the resource ID of the app icon.
+     *
+     * @return
+     *      The resource ID of the app icon
+     */
+    private int getIconResId() {
+        Resources res   = context.getResources();
+        String pkgName  = context.getPackageName();
+
+        int resId;
+        resId = res.getIdentifier(options.options.optString("icon", "icon"), "drawable", pkgName);
+
+        return resId;
     }
 
     /**

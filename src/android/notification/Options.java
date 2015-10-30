@@ -44,7 +44,7 @@ public class Options {
     static final String EXTRA = "NOTIFICATION_OPTIONS";
 
     // The original JSON object
-    private JSONObject options = new JSONObject();
+    public JSONObject options = new JSONObject();
 
     // Repeat interval
     private long interval = 0;
