@@ -32,7 +32,7 @@ import android.support.v4.app.NotificationCompat;
 import org.json.JSONObject;
 
 import java.util.Random;
-
+import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 
 /**
